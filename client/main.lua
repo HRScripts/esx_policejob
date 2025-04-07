@@ -1278,18 +1278,18 @@ CreateThread(function()
 					end
 				end
 
-				for i=1, #v.Vehicles, 1 do
-					local distance = #(playerCoords - v.Vehicles[i].Spawner)
+				-- for i=1, #v.Vehicles, 1 do
+				-- 	local distance = #(playerCoords - v.Vehicles[i].Spawner)
 
-					if distance < Config.DrawDistance then
-						DrawMarker(Config.MarkerType.Vehicles, v.Vehicles[i].Spawner, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, true, false, false, false)
-						Sleep = 0
+				-- 	if distance < Config.DrawDistance then
+				-- 		DrawMarker(Config.MarkerType.Vehicles, v.Vehicles[i].Spawner, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, true, false, false, false)
+				-- 		Sleep = 0
 
-						if distance < Config.MarkerSize.x then
-							isInMarker, currentStation, currentPart, currentPartNum = true, k, 'Vehicles', i
-						end
-					end
-				end
+				-- 		if distance < Config.MarkerSize.x then
+				-- 			isInMarker, currentStation, currentPart, currentPartNum = true, k, 'Vehicles', i
+				-- 		end
+				-- 	end
+				-- end
 
 				for i=1, #v.Helicopters, 1 do
 					local distance =  #(playerCoords - v.Helicopters[i].Spawner)
@@ -1416,13 +1416,13 @@ ESX.RegisterInput("police:interact", "(ESX PoliceJob) " .. TranslateCap('interac
 			ESX.ShowNotification(TranslateCap('service_not'))
 		end
 	elseif CurrentAction == 'menu_vehicle_spawner' then
-		if not Config.EnableESXService then
-			OpenVehicleSpawnerMenu('car', CurrentActionData.station, CurrentActionData.part, CurrentActionData.partNum)
-		elseif playerInService then
-			OpenVehicleSpawnerMenu('car', CurrentActionData.station, CurrentActionData.part, CurrentActionData.partNum)
-		else
-			ESX.ShowNotification(TranslateCap('service_not'))
-		end
+		-- if not Config.EnableESXService then
+		-- 	OpenVehicleSpawnerMenu('car', CurrentActionData.station, CurrentActionData.part, CurrentActionData.partNum)
+		-- elseif playerInService then
+		-- 	OpenVehicleSpawnerMenu('car', CurrentActionData.station, CurrentActionData.part, CurrentActionData.partNum)
+		-- else
+		-- 	ESX.ShowNotification(TranslateCap('service_not'))
+		-- end
 	elseif CurrentAction == 'Helicopters' then
 		if not Config.EnableESXService then
 			OpenVehicleSpawnerMenu('helicopter', CurrentActionData.station, CurrentActionData.part, CurrentActionData.partNum)
