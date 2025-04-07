@@ -9,7 +9,7 @@ legacyversion '1.9.1'
 
 shared_script '@es_extended/imports.lua'
 
-server_scripts {
+server_scrpts {
 	'@oxmysql/lib/MySQL.lua',
 	'@es_extended/locale.lua',
 	'locales/*.lua',
@@ -27,5 +27,7 @@ client_scripts {
 dependencies {
 	'es_extended',
 	'esx_billing',
-	'esx_vehicleshop'
+	'esx_vehicleshop',
+	'HRLib',
+	'HRGarages'
 }

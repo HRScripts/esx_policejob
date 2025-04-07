@@ -14,7 +14,7 @@ end
 function setUniform(uniform, playerPed)
 	TriggerEvent('skinchanger:getSkin', function(skin)
 		local uniformObject
-		
+
 		sex = (skin.sex == 0) and "male" or "female"
 
 		uniformObject = Config.Uniforms[uniform][sex]
@@ -1537,12 +1537,13 @@ function StartHandcuffTimer()
 	end)
 end
 
--- TODO
---   - return to garage if owned
---   - message owner that his vehicle has been impounded
+local HRLib <const> = exports.HRLib:getLibFunctions()
 function ImpoundVehicle(vehicle)
-	--local vehicleName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)))
+	TriggerEvent('HRGarages:removeEntityTracker', vehicle)
+	TriggerServerEvent('HRGarages:addImpoundedVehicle', HRLib.GetVehicleProperties(vehicle), true)
 	ESX.Game.DeleteVehicle(vehicle)
-	ESX.ShowNotification(TranslateCap('impound_successful'))
+
 	currentTask.busy = false
+
+	ESX.ShowNotification(TranslateCap('impound_successful'))
 end
