@@ -1539,7 +1539,7 @@ end
 
 local HRLib <const> = exports.HRLib:getLibFunctions()
 function ImpoundVehicle(vehicle)
-	TriggerEvent('HRGarages:removeEntityTracker', vehicle)
+	HRLib.ServerCallback('HRGarages:removeEntityTracker', tostring(vehicle), GetVehicleNumberPlateText(vehicle))
 	TriggerServerEvent('HRGarages:addImpoundedVehicle', HRLib.GetVehicleProperties(vehicle), true)
 	ESX.Game.DeleteVehicle(vehicle)
 
